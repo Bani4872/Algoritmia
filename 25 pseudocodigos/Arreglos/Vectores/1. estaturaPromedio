@@ -1,0 +1,38 @@
+Algoritmo estaturaPromedio
+	//Entradas: estudiantes, altura el primero como el array de 20, el segundo la altura de cada uno
+	//salida: como el promedio como promedio de estatura y fueraDelpromedio como la cantidad de estudiantes fuera del promedio
+	//caso de prueba: 1.70, 1.70, 1.90 promedio <- 1.7666, fueraDelpromedio <-1.
+	
+	definir estudiantes, cantidad, altura, fueraDelpromedio, suma, indice Como Entero;
+	definir promedio como real;
+	
+	altura <- 0;
+	fueraDelpromedio <- 0;
+	suma <- 0;
+	promedio <- 0.0;
+	cantidad <- 0;
+	
+	escribir "Mencioname la cantidad de estudiantes";
+	leer cantidad;
+	
+	dimensionar estudiantes(cantidad);
+	
+	escribir "Menciona las alturas en centimetros";
+	para indice <- 0 hasta cantidad - 1 Hacer
+		escribir "Mencioname la altura del estudiante numero: ", indice;
+		leer altura;
+		estudiantes(indice) <- altura;
+		suma <- suma + altura;
+	FinPara
+	
+	promedio <- suma/cantidad;
+	
+	para indice <- 0 hasta cantidad -1 hacer
+		si estudiantes(indice) > promedio Entonces
+			fueraDelpromedio = fueraDelpromedio +1;
+		FinSi
+	FinPara
+	
+	escribir "El promedio de altura es de: ", promedio;
+	escribir fueraDelpromedio " estudiantes estan arriba del promedio";
+FinAlgoritmo

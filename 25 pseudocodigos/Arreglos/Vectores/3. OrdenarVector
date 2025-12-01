@@ -1,0 +1,66 @@
+Algoritmo OrdenarVector
+	//entradas: nums como el vector de los numeros desordenado, num como el numero a insertar en el vector y espacio como el espacio del vector nums
+	//salida: el vector nums pero ordenado de manera ascendente
+	//caso de prueba: 1, 2, 3, 5, 4 <- 1, 2, 3, 4, 5
+	
+	definir nums, num, espacio, indice, aux Como Entero;
+	definir ordenado, ordenadoProceso Como Logico;
+	
+	ordenado <- falso;
+	ordenadoProceso <- Verdadero;
+	aux <- 0;
+	espacio <- 0;
+	
+	escribir "¿De cuantos espacios es tu vector?";
+	leer espacio;
+	
+	Dimensionar nums[espacio];
+	
+	escribir "Mencioname uno por uno los valores de tu vector";
+	para indice <- 0 hasta espacio-1 Hacer
+		leer num;
+		nums[indice] <- num;
+	FinPara
+	
+	escribir "Vector inicial: ";
+	para indice<-0 hasta espacio-1 Hacer
+		escribir sin saltar nums[indice] ", ";
+	FinPara
+	
+	mientras ordenado == falso hacer
+		ordenadoProceso <- verdadero;
+		indice<- 0;
+		
+		Repetir
+			si indice < espacio-1 entonces
+				si nums[indice] > nums[indice+1] Entonces
+					ordenadoProceso <- falso;
+				FinSi
+			FinSi
+			
+			indice <- indice+1;
+		Hasta Que ordenadoProceso == falso o indice == espacio;
+		ordenado <- ordenadoProceso;
+		
+		si ordenado == falso Entonces
+			para indice <- 0 hasta espacio -1 Hacer
+				si indice < espacio-1 entonces
+					si nums[indice] > nums[indice+1] Entonces
+						
+						aux <- nums[indice+1];
+						nums[indice+1] <- nums[indice];
+						nums[indice] <- aux;
+						
+					FinSi
+				FinSi
+			FinPara
+		FinSi
+	FinMientras
+	
+	escribir "";
+	escribir "Vector final: ";
+	para indice<-0 hasta espacio-1 Hacer
+		escribir sin saltar nums[indice] ", ";
+	FinPara
+	escribir "";
+FinAlgoritmo

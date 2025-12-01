@@ -1,0 +1,42 @@
+Algoritmo matriz10x10
+	//entradas: num como el numero que se busca las repeticiones dentro de la matriz
+	//salida: ubicacion y repeticiones de ese numero dentro de la matriz
+	
+	definir matriz, num, ubicacion, repeticiones, indice1, indice2 Como Entero;
+	
+	repeticiones <- 0;
+	ubicacion <- 0;
+	num <- 0;
+	
+	dimensionar matriz[10,10];
+	
+	para indice1 <- 0 hasta 9 Hacer
+		para indice2 <- 0 hasta 9 Hacer
+			matriz[indice1, indice2] <- aleatorio[0,99];
+		FinPara
+	FinPara
+	
+	escribir "La matriz es: ";
+	para indice1 <- 0 hasta 9 Hacer
+		para indice2 <- 0 hasta 9 Hacer
+			escribir sin saltar matriz[indice1, indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+	
+	escribir "¿Que numero quieres averiguar sus repeticiones y lugares?";
+	leer num;
+	
+	escribir "El numero se encuentra en las posiciones: ";
+	para indice1 <- 0 hasta 9 Hacer
+		para indice2 <- 0 hasta 9 Hacer
+			si num == matriz[indice1, indice2] Entonces
+				repeticiones <- repeticiones + 1;
+				escribir sin saltar "(", indice1 ",", indice2 ") ";
+			FinSi
+		FinPara
+	FinPara
+	escribir"";
+	
+	escribir "La cantidad de repeticiones es de: ", repeticiones;
+FinAlgoritmo

@@ -1,0 +1,53 @@
+Algoritmo desviacionEstandar
+	//entrada: rango de los valores de la matriz
+	//salida: la desviacion estandar de la matriz 5x3
+	
+	definir indice1, indice2, indice3 Como Entero;
+	definir desviacion, matriz, min, max, vector, suma, promedio Como Real;
+	
+	min <- 0.0;
+	max <- 0.0;
+	promedio <- 0.0;
+	suma <- 0.0;
+	desviacion <- 0.0;
+	indice3 <- 0;
+	
+	escribir "Cual es el valor minimo que puede aparecer";
+	leer min;
+	escribir "Ahora maximo";
+	leer max;
+	
+	Dimensionar matriz[5,3];
+	Dimensionar vector[15];
+	para indice1 <- 0 hasta 4 Hacer
+		para indice2 <- 0 hasta 2 Hacer
+			matriz[indice1, indice2] <- aleatorio(min,max);
+			suma <- suma + matriz[indice1, indice2];
+			
+			//Hacemos un vector para aligerar
+			vector[indice3] <- matriz[indice1, indice2];
+			indice3 <- indice3 + 1;
+		FinPara
+	FinPara
+	
+	promedio <- suma/15;
+	
+	//hallamos la suma de la resta de cada valor del vector hecho a base de la matriz para hallar la desviacion estandar despues
+	suma <- 0.0;
+	para indice1 <- 0 hasta 14 Hacer
+		suma <- suma + (vector[indice1]-promedio)^2;
+	FinPara
+	
+	desviacion <- raiz((suma)/15);
+	
+	//imprimimos la matriz
+	para indice1 <- 0 hasta 4 Hacer
+		para indice2 <- 0 hasta 2 Hacer
+			escribir sin saltar matriz[indice1, indice2] " ";
+		FinPara
+		escribir " ";
+	FinPara
+	
+	escribir "La desviacion estandar de todo esos numeros es de: ", desviacion;
+	
+FinAlgoritmo

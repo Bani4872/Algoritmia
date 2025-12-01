@@ -1,0 +1,82 @@
+Algoritmo matricesPar
+	//entrada: filas, columnas como las dimensiones de matrizA y matrizB, despues Seleccion1, Seleccion2 como la fila y la columna que quiere que se intercambien
+	//salida: las matrices intercambiadas
+	
+	definir filas, columnas, matrizA, matrizB, seleccion1, seleccion2, indice1, indice2, aux como entero;
+	filas <- 0;
+	columnas <- 0;
+	seleccion1 <- 0;
+	seleccion2 <- 0;
+	aux <- 0;
+	
+	//inicializamos las matrices
+	escribir "Mencioname el espacio cuadrado de la matriz";
+	leer filas;
+	columnas <- filas;
+	
+	dimensionar matrizA[filas,columnas], matrizB[filas,columnas];
+	
+	//pedimos valores a matrizA
+	escribir "Menciona uno por uno los valores de la matriz A";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			leer matrizA[indice1,indice2];
+		FinPara
+	FinPara
+	//Pedimos valores a matrizB
+	escribir "Menciona uno por uno los valores de la matriz B";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			leer matrizB[indice1,indice2];
+		FinPara
+	FinPara
+	//Imprimimos inicialmente las matrices
+	escribir "Las matrices son:";
+	escribir "A: ";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			escribir sin saltar matrizA[indice1,indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+	escribir "--------------------------------------------";
+	escribir "B: ";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			escribir sin saltar matrizB[indice1, indice2] " ";
+		FinPara
+		escribir " ";
+	FinPara
+	
+	//seccion para seleccionar fila y columna que se cambiara
+	escribir "¿Cual fila de la matriz A seleccionas para intercambiar? 0-",filas-1;
+	leer seleccion1;
+	escribir "¿Cual columna de la matriz B seleccionas para intercambiar? 0-",columnas-1;
+	leer seleccion2;
+	
+	para indice1 <- 0 hasta filas-1 Hacer
+		aux <- matrizA[seleccion1,indice1];
+		matrizA[seleccion1,indice1] <- matrizB[indice1,seleccion2];
+		matrizB[indice1,seleccion2] <- aux;
+	FinPara
+	
+	//----------------------
+	//imprimimos matrices
+	//----------------------
+	escribir "Las matrices quedan:";
+	escribir "A: ";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			escribir sin saltar matrizA[indice1,indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+	escribir "--------------------------------------------";
+	escribir "B: ";
+	para indice1<-0 hasta filas-1 Hacer
+		para indice2 <-0 hasta columnas-1 Hacer
+			escribir sin saltar matrizB[indice1, indice2] " ";
+		FinPara
+		escribir " ";
+	FinPara
+FinAlgoritmo

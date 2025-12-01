@@ -1,0 +1,31 @@
+Algoritmo ejercicio7
+	//entradas: num
+	//salida: vector como el vector de numeros que se irá corriendo
+	//caso de prueba: 0,0,0,0,0 num <- 1 vector <- 1,0,0,0,0
+	
+	definir num, vector, indice, limite Como Entero;
+	
+	num <- 0;
+	limite <- 5;
+	Dimensionar vector(5+1);
+	
+	para indice <- 1 hasta limite Hacer
+		vector(indice) <- 0;
+	FinPara
+	
+	escribir "Inserta un valor entero positivo, escribe -1 para finalizar";
+	mientras num <> -1 hacer
+		para indice <- 1 hasta limite Hacer
+			escribir vector(indice) " " sin saltar;
+		FinPara
+		escribir "";
+		leer num;
+		
+		vector(5) <- vector(4);
+		vector(4) <- vector(3);
+		vector(3) <- vector(2);
+		vector(2) <- vector(1);
+		vector(1) <- num;
+		
+	FinMientras
+FinAlgoritmo

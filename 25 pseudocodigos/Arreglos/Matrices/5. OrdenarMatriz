@@ -1,0 +1,58 @@
+Algoritmo OrdenarMatriz
+	//entradas: nums como los valores a insertarse en la matriz 3x4 llamado matriz
+	//salida: la misma matriz pero ordenada
+	
+	definir nums, matriz, indice1, indice2, indice3, indice4, esMenor1, esMenor2, aux Como Entero;
+	
+	nums <- 0;
+	aux <- 0;
+	esMenor1 <-0;
+	esMenor2 <-0;
+	Dimensionar matriz[3,4];
+	
+	escribir "Mencioname los valores de la matriz";
+	para indice1 <- 0 hasta 2 Hacer
+		para indice2 <- 0 hasta 3 Hacer
+			leer nums;
+			matriz[indice1, indice2] <- nums;
+		FinPara
+	FinPara
+	
+	escribir "La matriz es: ";
+	para indice1 <- 0 hasta 2 Hacer
+		para indice2 <- 0 hasta 3 Hacer
+			escribir sin saltar matriz[indice1, indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+	
+	//ordenamiento por seleccion
+	para indice1<- 0 hasta 2 Hacer
+		para indice2 <- 0 hasta 3 Hacer
+			esMenor1 <- indice1;
+			esMenor2 <- indice2;
+			
+			para indice3 <- indice1 hasta 2 Hacer
+				para indice4 <- indice2 hasta 3 Hacer
+					si matriz[esMenor1,esMenor2] > matriz[indice3, indice4] Entonces
+						esMenor1 <- indice3;
+						esMenor2 <- indice4;
+					FinSi
+				FinPara
+			FinPara
+			
+			aux <- matriz[esMenor1,esMenor2];
+			matriz[esMenor1,esMenor2] <- matriz[indice1,indice2];
+			matriz[indice1,indice2] <- aux;
+		FinPara
+	FinPara 
+	
+	escribir "------------------------------------";
+	escribir "La matriz queda: ";
+	para indice1 <- 0 hasta 2 Hacer
+		para indice2 <- 0 hasta 3 Hacer
+			escribir sin saltar matriz[indice1, indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+FinAlgoritmo

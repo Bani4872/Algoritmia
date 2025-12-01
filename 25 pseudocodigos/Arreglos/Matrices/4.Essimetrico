@@ -1,0 +1,54 @@
+Algoritmo Simetria
+	//entradas: amplitud como el cuadrado de los espacios que habran en la matriz, num como el valor a insertar
+	//salida: si es simetrica la matriz tanto en matriz[i,j] sea igual que matriz[j,i], tanto en posiciones
+	
+	definir amplitud, matriz, num, indice1, indice2 Como Entero;
+	definir simetrico Como Logico;
+	
+	amplitud <- 0;
+	simetrico <- verdadero;
+	num <- 0;
+	
+	escribir "Mencioname de que espacio al cuadrado quieres que sea tu matriz";
+	leer amplitud;
+	
+	Dimensionar matriz[amplitud,amplitud];
+	
+	escribir "Mencioname uno por uno los valores de la matriz";
+	para indice1<-0 hasta amplitud - 1 Hacer
+		para indice2<-0 hasta amplitud-1 Hacer
+			leer matriz[indice1,indice2];
+		FinPara
+	FinPara
+	
+	para indice1<-0 hasta amplitud - 1 Hacer
+		para indice2<-0 hasta amplitud-1 Hacer
+			si matriz[indice1,indice2] == matriz[indice2, indice1] y simetrico==verdadero Entonces
+				simetrico <- Verdadero;
+			SiNo
+				simetrico <- falso;
+			FinSi
+		FinPara
+	FinPara
+	
+	para indice1<-0 hasta amplitud - 1 Hacer
+		para indice2<-0 hasta amplitud-1 Hacer
+			escribir sin saltar matriz[indice1,indice2] " ";
+		FinPara
+		escribir "";
+	FinPara
+	escribir "-------------------";
+	para indice1<-0 hasta amplitud - 1 Hacer
+		para indice2<-0 hasta amplitud-1 Hacer
+			escribir sin saltar matriz[indice2,indice1] " ";
+		FinPara
+		escribir "";
+	FinPara
+	
+	si simetrico == Verdadero Entonces
+		escribir "Si cumple simetria";
+	SiNo
+		escribir "No cumple simetría";
+	FinSi
+	
+FinAlgoritmo

@@ -1,0 +1,108 @@
+Algoritmo estadisticaVector
+	//entradas: nums, como el numero en un espacio indice del vector nums
+	//salidas: media, mediana, moda y rango
+	//reestricciones: unicamente unimodal
+	//caso de prueba: nums <- 2, 2, 0, 4, media <- 2, mediana <- 2, moda <- 2 rango<- 4;
+	
+	definir nums, num, espacio, indice, indice2, aux Como Entero;
+	//definimos los datos que se sacarán de los datos
+	definir media, mediana Como Real;
+	definir moda, rango, repeticiones, repeticionesDefinido, suma Como Entero;
+	definir ordenado, ordenadoProceso Como Logico;
+	
+	media <- 0.0;
+	mediana <- 0.0;
+	moda <- 0;
+	rango <- 0;
+	repeticiones <- 0;
+	repeticionesDefinido <- 0;
+	suma <- 0;
+	aux <- 0;
+	espacio <- 0;
+	ordenado <- falso;
+	ordenadoProceso <- Verdadero;
+	
+	escribir "¿Cuántos numeros insertarás?";
+	leer espacio;
+	
+	Dimensionar nums[espacio];
+	
+	escribir "Mencioname uno por uno los valores";
+	para indice <- 0 hasta espacio-1 Hacer
+		leer num;
+		nums[indice] <- num;
+	FinPara
+	
+	mientras ordenado == falso hacer
+		ordenadoProceso <- verdadero;
+		indice<- 0;
+		
+		Repetir
+			si indice < espacio-1 entonces
+				si nums[indice] > nums[indice+1] Entonces
+					ordenadoProceso <- falso;
+				FinSi
+			FinSi
+			
+			indice <- indice+1;
+		Hasta Que ordenadoProceso == falso o indice == espacio;
+		ordenado <- ordenadoProceso;
+		
+		si ordenado == falso Entonces
+			para indice <- 0 hasta espacio -1 Hacer
+				si indice < espacio-1 entonces
+					si nums[indice] > nums[indice+1] Entonces
+						
+						aux <- nums[indice+1];
+						nums[indice+1] <- nums[indice];
+						nums[indice] <- aux;
+						
+					FinSi
+				FinSi
+			FinPara
+		FinSi
+	FinMientras
+	escribir "Los valores ordenados son: ";
+	para indice<-0 hasta espacio-1 Hacer
+		escribir sin saltar nums[indice] ", ";
+	FinPara
+	escribir "";
+	
+	//hallamos los valores
+	para indice <- 0 hasta espacio-1 Hacer
+		suma <- suma + nums[indice];
+	FinPara
+	
+	para indice <- nums[0] hasta nums[espacio-1] Hacer
+		repeticiones <- 0;
+		
+		para indice2 <- 0 hasta espacio-1 Hacer
+			
+			si indice2 < espacio-1 entonces
+				si indice == nums[indice2] Entonces
+					repeticiones <- repeticiones+1;
+				FinSi
+			FinSi
+			
+		FinPara
+		
+		si repeticiones > repeticionesDefinido Entonces
+			repeticionesDefinido <- repeticiones;
+			moda <- indice;
+		FinSi
+	FinPara
+	
+	si espacio es par Entonces
+		mediana <- (nums[((espacio)/2)-1]+(nums[(espacio/2)]))/2;
+	SiNo
+		mediana <- nums[((espacio+1)/2)-1];
+	FinSi
+	
+	media <- suma/espacio;
+	rango <- nums[espacio-1] - nums[0];
+	
+	escribir "La media aritmetica es: ", media;
+	escribir "La mediana es: ", mediana;
+	escribir "La moda es: ", moda;
+	escribir "El rango es: ", rango;
+FinAlgoritmo
