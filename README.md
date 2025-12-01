@@ -9,5 +9,3 @@ Mi objetivo es compartirlo para poder demostrar mi progreso.
 ## ¡¡30 Algoritmos!!
 ->25 algoritmos con diferentes problemas resueltos en clase.
 ->5 algoritmos con diferentes problemas resueltos.
-
-.gitignore
